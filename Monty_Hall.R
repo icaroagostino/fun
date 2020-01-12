@@ -1,3 +1,5 @@
+library(ggplot2)
+
 # Demonstracao do Problema de Monty Hall
 
 n <- 10000 # Numero de repeticoes
