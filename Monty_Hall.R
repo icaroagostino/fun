@@ -29,13 +29,13 @@ for (i in 1:n){
 }
 
 # Computa resultados
-data <-
+data_estrategia1 <-
   data.frame(rodada = c(1:n),
              perc.ganha = cumsum(vitorias)/c(1:n))
   
 # Plot
 resultados_estrategia1 <- 
-  ggplot(data, aes(x = rodada, y = perc.ganha)) +
+  ggplot(data_estrategia1, aes(x = rodada, y = perc.ganha)) +
   geom_line() +
   geom_hline(yintercept=1/3,
              color = "red")
@@ -74,13 +74,13 @@ for (i in 1:n){
 }
 
 # Computa resultados
-data <-
+data_estrategia2 <-
   data.frame(rodada = c(1:n),
              perc.ganha = cumsum(vitorias)/c(1:n))
 
 # Plot
 resultados_estrategia2 <-
-  ggplot(data, aes(x = rodada, y = perc.ganha)) +
+  ggplot(data_estrategia2, aes(x = rodada, y = perc.ganha)) +
   geom_line() +
   geom_hline(yintercept=2/3,
              color = "red")
