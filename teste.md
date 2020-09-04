@@ -5,7 +5,7 @@ Carregando dplyr
 
 Criando uma base de dados
 -------------------------
-
+```r
     dados <- tibble(
       candidato = sample(letters, 100, replace = T),
       cidade    = sample(LETTERS, 100, replace = T),
@@ -28,10 +28,10 @@ Criando uma base de dados
     ##  9 c         Q       1796
     ## 10 j         K       2416
     ## # ... with 90 more rows
-
+```
 Selecionando os top 10 candidatos por valor
 -------------------------------------------
-
+```r
     top10candidatoPorValor <- 
       dados %>% 
       group_by(candidato) %>% 
@@ -58,10 +58,10 @@ Selecionando os top 10 candidatos por valor
     ##  8 d          7955
     ##  9 l          7299
     ## 10 s          7229
-
+```
 Selecionando a cidade com mais valor dos top 10 candidatos
 ----------------------------------------------------------
-
+```r
     topCidadePorCandidato <- 
       dados %>% 
       filter(candidato %in% top10candidatoPorValor$candidato) %>% 
@@ -85,3 +85,4 @@ Selecionando a cidade com mais valor dos top 10 candidatos
     ##  8 s         R       2777
     ##  9 w         Z       2751
     ## 10 c         B       2468
+```
