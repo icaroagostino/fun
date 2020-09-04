@@ -17,16 +17,16 @@ Criando uma base de dados
     ## # A tibble: 10,000 x 3
     ##    candidato cidade valor
     ##    <chr>     <chr>  <int>
-    ##  1 v         Q       2923
-    ##  2 p         T       2277
-    ##  3 t         D         23
-    ##  4 d         M       2385
-    ##  5 d         I       1172
-    ##  6 j         A       1206
-    ##  7 t         G       2798
-    ##  8 s         R       2389
-    ##  9 j         M       2583
-    ## 10 l         J       1478
+    ##  1 y         S       1489
+    ##  2 a         X       1277
+    ##  3 z         R       1868
+    ##  4 a         J       1015
+    ##  5 k         H       1208
+    ##  6 g         S       1970
+    ##  7 t         S        857
+    ##  8 o         Z       2849
+    ##  9 r         I        127
+    ## 10 x         U       2572
     ## # ... with 9,990 more rows
 ```
 Selecionando os top 10 candidatos por valor
@@ -48,16 +48,16 @@ Selecionando os top 10 candidatos por valor
     ## # A tibble: 10 x 2
     ##    candidato  valor
     ##    <chr>      <int>
-    ##  1 a         644313
-    ##  2 q         623122
-    ##  3 j         615579
-    ##  4 t         612062
-    ##  5 e         610184
-    ##  6 w         604008
-    ##  7 i         597240
-    ##  8 r         588626
-    ##  9 p         583236
-    ## 10 d         580460
+    ##  1 n         637727
+    ##  2 w         624123
+    ##  3 z         622881
+    ##  4 f         612844
+    ##  5 e         610155
+    ##  6 c         603001
+    ##  7 r         602271
+    ##  8 h         595418
+    ##  9 j         595341
+    ## 10 v         588858
 ```
 Selecionando a cidade com mais valor dos top 10 candidatos
 ----------------------------------------------------------
@@ -65,45 +65,45 @@ Selecionando a cidade com mais valor dos top 10 candidatos
     topCidadePorCandidato <- 
       dados %>% 
       filter(candidato %in% top10candidatoPorValor$candidato) %>% 
+      arrange(desc(valor)) %>% 
       group_by(candidato) %>% 
-      filter(valor == pmax(valor, 10)) %>% 
-      arrange(candidato)
+      slice(1:10)
 
     topCidadePorCandidato %>% print(n = 30)
 
-    ## # A tibble: 3,995 x 3
+    ## # A tibble: 100 x 3
     ## # Groups:   candidato [10]
     ##    candidato cidade valor
     ##    <chr>     <chr>  <int>
-    ##  1 a         A       1694
-    ##  2 a         P       2443
-    ##  3 a         R       2728
-    ##  4 a         Q       2781
-    ##  5 a         C        497
-    ##  6 a         E       1521
-    ##  7 a         I       2281
-    ##  8 a         U        567
-    ##  9 a         L       2585
-    ## 10 a         K       2505
-    ## 11 a         C        267
-    ## 12 a         G        653
-    ## 13 a         P        997
-    ## 14 a         F       1803
-    ## 15 a         C       2106
-    ## 16 a         F        891
-    ## 17 a         Y       2530
-    ## 18 a         X       2031
-    ## 19 a         M       1986
-    ## 20 a         M       2706
-    ## 21 a         T       2178
-    ## 22 a         N       1733
-    ## 23 a         E       2637
-    ## 24 a         O       2824
-    ## 25 a         A       2662
-    ## 26 a         D       1347
-    ## 27 a         H       2368
-    ## 28 a         E         73
-    ## 29 a         R       2154
-    ## 30 a         Z        607
-    ## # ... with 3,965 more rows
+    ##  1 c         U       2996
+    ##  2 c         A       2991
+    ##  3 c         M       2982
+    ##  4 c         T       2979
+    ##  5 c         R       2977
+    ##  6 c         B       2976
+    ##  7 c         X       2962
+    ##  8 c         E       2946
+    ##  9 c         F       2940
+    ## 10 c         O       2935
+    ## 11 e         F       2998
+    ## 12 e         B       2994
+    ## 13 e         R       2985
+    ## 14 e         J       2983
+    ## 15 e         U       2978
+    ## 16 e         K       2972
+    ## 17 e         L       2971
+    ## 18 e         N       2951
+    ## 19 e         A       2950
+    ## 20 e         D       2946
+    ## 21 f         R       2996
+    ## 22 f         S       2983
+    ## 23 f         M       2966
+    ## 24 f         C       2963
+    ## 25 f         W       2948
+    ## 26 f         Y       2948
+    ## 27 f         C       2944
+    ## 28 f         N       2938
+    ## 29 f         R       2912
+    ## 30 f         O       2903
+    ## # ... with 70 more rows
 ```
